@@ -16,28 +16,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 */
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<AppLayout />}>
-        {/* user 화면 */}
-        <Route index element={<Homepage />} />
+    <>
+      <Routes>
+        <Route path="/" element={<AppLayout />}>
+          {/* user 화면 */}
+          <Route index element={<Homepage />} />
 
-        {/* 영화 관련 라우트들 묶어주기 */}
-        <Route path="movies">
-          <Route index element={<MoviePage />} />
-          <Route path=":id" element={<MovieDetailPage />} />
-        </Route>
-        {/* <Route path="/movies" element={<MoviePage />} />
+          {/* 영화 관련 라우트들 묶어주기 */}
+          <Route path="movies">
+            <Route index element={<MoviePage />} />
+            <Route path=":id" element={<MovieDetailPage />} />
+          </Route>
+          {/* <Route path="/movies" element={<MoviePage />} />
         <Route path="/movies/:id" element={<MovieDetailPage />} /> */}
 
-        {/* tv 관련 라우트들 묶어주기 */}
-        <Route path="tv">
-          <Route index />
-        </Route>
+          {/* tv 관련 라우트들 묶어주기 */}
+          <Route path="tv">
+            <Route index />
+          </Route>
 
-        {/* 그밖의 not found page */}
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
+          {/* 그밖의 not found page */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
