@@ -4,8 +4,15 @@
   font-family: 'Gowun Dodum', sans-serif;
   font-weight: 400;
   font-style: normal;
-  background-color: black;
   color: white;
+}
+
+.navbar {
+  background-color: black;
+}
+
+.container-fluid {
+  background-color: black;
 }
 
 .navbar-brand {
