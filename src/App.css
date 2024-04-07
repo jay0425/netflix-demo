@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
 * {
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'Reddit Mono', monospace;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   color: white;
 }
 
-.navbar {
-  background-color: black;
+body {
+  background-color: black !important;
 }
 
 .container-fluid {

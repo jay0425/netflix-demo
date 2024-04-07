@@ -22,7 +22,7 @@ const Banner = () => {
     >
       <div className="banner-text-area">
         <h1>{data && data.results[0].title}</h1>
-        <h4>{data?.results[0].overview}</h4>
+        <h5>{data?.results[0].overview}</h5>
       </div>
     </div>
   );
