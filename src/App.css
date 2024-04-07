@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
-* {
+*,
+::after,
+::before {
   font-family: 'Reddit Mono', monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   color: white;
+
+  box-sizing: border-box;
 }
 
 body {
