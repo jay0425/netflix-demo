@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 *,
 ::after,
 ::before {
-  font-family: 'Reddit Mono', monospace;
+  font-family: 'Rubik', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -28,4 +28,8 @@ body {
 
 .form-control {
   border: green !important;
+}
+
+.about-movie {
+  margin: 1rem 0;
 }

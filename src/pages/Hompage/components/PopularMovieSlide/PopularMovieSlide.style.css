@@ -1,0 +1,5 @@
+.carousel-container {
+  /* overflow 속성을 hidden으로 설정해주면 해당 HTML 요소 밖으로 삐져나오는 컨텐츠를 숨겨버릴 수 있다. */
+  overflow: hidden;
+  height: 440px;
+}

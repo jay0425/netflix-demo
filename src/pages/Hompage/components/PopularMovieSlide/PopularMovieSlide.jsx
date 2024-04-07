@@ -5,6 +5,7 @@ import 'react-multi-carousel/lib/styles.css';
 import { Alert } from 'react-bootstrap';
 import MovieCard from '../MovieCard/MovieCard';
 import Loading from '../Loading/Loading';
+import './PopularMovieSlide.style.css';
 
 const responsive = {
   superLargeDesktop: {
@@ -14,7 +15,7 @@ const responsive = {
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 8,
+    items: 7,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -38,7 +39,7 @@ const PopularMovieSlide = () => {
 
   return (
     <div>
-      <h3>Popular Movies</h3>
+      <h3 className="about-movie">Popular Movies</h3>
       <Carousel
         infinite={true}
         centerMode={true}
