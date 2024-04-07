@@ -7,7 +7,7 @@ const AppLayout = () => {
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
-            <img src="/JAEFLIX_LOGO.png" alt="재플릭스 로고 이미지" width={100} />
+            <img src="/JAEFLIX_LOGO.png" alt="재플릭스 로고 이미지" width={120} />
           </a>
           <button
             class="navbar-toggler"

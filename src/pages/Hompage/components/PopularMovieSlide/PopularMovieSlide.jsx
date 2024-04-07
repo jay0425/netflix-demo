@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Alert } from 'react-bootstrap';
 import MovieCard from '../MovieCard/MovieCard';
+import Loading from '../Loading/Loading';
 
 const responsive = {
   superLargeDesktop: {
@@ -29,7 +30,7 @@ const PopularMovieSlide = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
   if (isError) {
     return <Alert varient="danger">{error.message}</Alert>;
