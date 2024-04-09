@@ -9,6 +9,15 @@ const MovieCard = ({ movie }) => {
   const { data: genreData } = useMovieGenreQuery();
   console.log('genre', genreData);
 
+  const showGenre = (genreIdList) => {
+    if (!genreData) return [];
+    const genreNameList = genreIdList?.map((id) => {
+      const genreObj = genreData.find((genre) => genre.id === id);
+      return genreObj.name;
+    });
+    return genreNameList;
+  };
+
   return (
     <div
       style={{
@@ -18,16 +27,18 @@ const MovieCard = ({ movie }) => {
     >
       <div className="overlay">
         <h1>{movie.title}</h1>
-        {movie.genre_ids.map((id) => (
-          <Badge bg="success">{id}</Badge>
+        {showGenre(movie.genre_ids)?.map((id) => (
+          <Badge className="me-2" bg="success">
+            {id}
+          </Badge>
         ))}
-        <div>
+        <div className="movie-info">
           <div>
-            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon className="me-2" icon={faStar} />
             {movie.vote_average}
           </div>
           <div className="popularity">
-            <FontAwesomeIcon icon={faUsers} />
+            <FontAwesomeIcon className="me-2" icon={faUsers} />
             {movie.popularity}
           </div>
           <div>{movie.adult ? 'over18' : ''}</div>
