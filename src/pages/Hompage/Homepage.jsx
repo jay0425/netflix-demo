@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './components/Banner/Banner';
 import PopularMovieSlide from './components/PopularMovieSlide/PopularMovieSlide';
 import RatedMovieSlide from './components/RatedMovieSlide/RatedMovieSlide';
+import UpcomingMovieSlide from './components/UpcomingMovieSlide/UpcomingMovieSlide';
 
 /*
 
@@ -10,6 +11,7 @@ import RatedMovieSlide from './components/RatedMovieSlide/RatedMovieSlide';
 3. top rated movie
 4. upcoming movie
 
+5. tv 시리즈
 */
 
 const Homepage = () => {
@@ -18,6 +20,7 @@ const Homepage = () => {
       <Banner />
       <PopularMovieSlide />
       <RatedMovieSlide />
+      <UpcomingMovieSlide />
     </div>
   );
 };
