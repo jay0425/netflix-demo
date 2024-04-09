@@ -1,6 +1,7 @@
 import React from 'react';
 import './MovieSlider.style.css';
-import MovieCard from '../MovieSlider/MovieSlider';
+import MovieCard from '../MovieCard/MovieCard';
+
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
