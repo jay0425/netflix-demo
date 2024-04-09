@@ -2,7 +2,7 @@ import React from 'react';
 import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
 import Alert from 'react-bootstrap/Alert';
 import './Banner.style.css';
-import Loading from '../Loading/Loading';
+import Loading from '../../../../common/Loading/Loading';
 
 const Banner = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
