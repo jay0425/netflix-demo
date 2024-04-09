@@ -16,7 +16,7 @@ const RatedMovieSlide = () => {
   }
   return (
     <div>
-      <MovieSlider title="Top Rated Movies" movies={data.results} responsive={responsive} />
+      <MovieSlider title="상위권 영화" movies={data.results} responsive={responsive} />
     </div>
   );
 };

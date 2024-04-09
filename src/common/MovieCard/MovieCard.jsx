@@ -3,8 +3,12 @@ import Badge from 'react-bootstrap/Badge';
 import './MovieCard.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 
 const MovieCard = ({ movie }) => {
+  const { data: genreData } = useMovieGenreQuery();
+  console.log('genre', genreData);
+
   return (
     <div
       style={{
