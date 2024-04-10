@@ -1,7 +1,17 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 const AppLayout = () => {
+  const [keyword, setKeyword] = useState('');
+  const navigate = useNavigate();
+
+  const searchByKeyword = (event) => {
+    event.preventDefault();
+    // url을 바꿔주기
+    navigate(`/movies?q=${keyword}`);
+    setKeyword('');
+  };
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg">
@@ -33,12 +43,14 @@ const AppLayout = () => {
                 </a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" onSubmit={searchByKeyword}>
               <input
                 class="form-control me-2 outline-success bg-success text-white"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                value={keyword}
+                onChange={(event) => setKeyword(event.target.value)}
               />
               <button class="btn btn-outline-success" type="submit">
                 Search
