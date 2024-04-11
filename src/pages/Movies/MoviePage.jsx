@@ -49,7 +49,9 @@ const MoviePage = () => {
     <div className="text-white">
       <Container>
         <Row>
-          <Col lg={4} xs={12}></Col>
+          <Col lg={4} xs={12}>
+            영화 분류
+          </Col>
           <Col lg={8} xs={12}>
             <Row>
               {data?.results.map((movie, index) => (
@@ -79,6 +81,7 @@ const MoviePage = () => {
           containerClassName="pagination"
           activeClassName="active"
           renderOnZeroPageCount={null}
+          forcePage={page - 1}
         />
       </Container>
     </div>
