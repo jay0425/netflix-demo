@@ -3,12 +3,17 @@ import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
 import Alert from 'react-bootstrap/Alert';
 import './Banner.style.css';
 import Loading from '../../../../common/Loading/Loading';
+import Container from 'react-bootstrap/Container';
 
 const Banner = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
   console.log('ddd', data);
   if (isLoading) {
-    return <Loading />;
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
   if (isError) {
     return <Alert variant="danger">{error.message}</Alert>;
@@ -21,6 +26,7 @@ const Banner = () => {
     //   }}
     //   className="banner"
     // >
+
     <div
       style={{
         backgroundImage: 'url(' + `https://image.tmdb.org/t/p/original${data?.results[0].backdrop_path}` + ')',

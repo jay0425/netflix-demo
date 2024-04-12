@@ -11,15 +11,12 @@ import ReactPaginate from 'react-paginate';
 
 /*
 
-경로 2가지
+- 경로 2가지
 nav바에서 클릭해서 온경우 => popularMovie 보여주기
 keyword를 입력해서 온경우 => keyword와 관련된 영화들을 보여줌
 
-*/
 
-/*
-
-페이지네이션 설치
+- 페이지네이션 설치
 page state 만들기
 페이지네이션 클릭할 때마다 page 바꿔주기
 page 값이 바뀔때마다 useSearchMovie에 page까지 넣어서 fetch
@@ -50,7 +47,7 @@ const MoviePage = () => {
       <Container>
         <Row>
           <Col lg={4} xs={12}>
-            영화 분류
+            영화 장르 분류
           </Col>
           <Col lg={8} xs={12}>
             <Row>
