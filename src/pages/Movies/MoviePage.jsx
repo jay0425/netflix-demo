@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import Alert from 'react-bootstrap/Alert';
@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
+import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 
 /*
 
@@ -27,8 +28,41 @@ const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
   const [page, setPage] = useState(1);
   const keyword = query.get('q');
+  const [data, setData] = useState(null);
+  const [genre, setGenre] = useState(null);
+  const [filteredData, setFilteredData] = useState([]);
 
-  const { data, isLoading, isError, error } = useSearchMovieQuery({ keyword, page });
+  const { data: searchData, isLoading, isError, error } = useSearchMovieQuery({ keyword, page });
+  const { data: genreData } = useMovieGenreQuery();
+
+  const filterMovieByGenre = () => {
+    const filteredData = data.results.filter((movie) => {
+      return movie.genre_ids.includes(genre.id);
+    });
+    setData({ ...data, results: filteredData });
+  };
+
+  useEffect(() => {
+    if (searchData) {
+      setData(searchData);
+    }
+  }, [searchData]);
+
+  useEffect(() => {
+    setFilteredData(data?.results);
+  }, [data]);
+  console.log(data);
+
+  useEffect(() => {
+    if (genre) {
+      filterMovieByGenre();
+    }
+  }, [genre]);
+
+  const genreFilter = (item) => {
+    const filteredMovies = data.results?.filter((movie) => movie.genre_ids.includes(item.id));
+    setFilteredData(filteredMovies);
+  };
 
   const handlePageClick = ({ selected }) => {
     setPage(selected + 1);
@@ -47,11 +81,19 @@ const MoviePage = () => {
       <Container>
         <Row>
           <Col lg={4} xs={12}>
-            영화 장르 분류
+            <div>
+              <div className="genre-list">
+                {genreData?.map((item) => (
+                  <button className="genre-btn" key={item.id} onClick={() => genreFilter(item)}>
+                    {item.name}
+                  </button>
+                ))}
+              </div>
+            </div>
           </Col>
           <Col lg={8} xs={12}>
             <Row>
-              {data?.results.map((movie, index) => (
+              {filteredData?.map((movie, index) => (
                 <Col key={index} lg={4} xs={12}>
                   <MovieCard movie={movie} />
                 </Col>

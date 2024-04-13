@@ -34,14 +34,14 @@ const MovieCard = ({ movie }) => {
         ))}
         <div className="movie-info">
           <div>
-            <FontAwesomeIcon className="me-2" icon={faStar} />
-            {movie.vote_average}
+            <FontAwesomeIcon className="me-1" icon={faStar} />
+            {Math.round(movie.vote_average * 10) / 10}
           </div>
           <div className="popularity">
-            <FontAwesomeIcon className="me-2" icon={faUsers} />
+            <FontAwesomeIcon className="me-1" icon={faUsers} />
             {movie.popularity}
           </div>
-          <div>{movie.adult ? 'over18' : ''}</div>
+          <div className="age-icon">{movie.adult ? '18' : 'All'}</div>
         </div>
       </div>
     </div>
