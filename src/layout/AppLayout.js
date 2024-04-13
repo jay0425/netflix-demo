@@ -59,7 +59,7 @@ const AppLayout = () => {
             </button>
           )}
           {isOpen ? (
-            <div class=" navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a class="icon-link-hover nav-link text-white" aria-current="page" href="/">
