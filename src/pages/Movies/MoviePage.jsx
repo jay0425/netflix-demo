@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
+import { Badge } from 'react-bootstrap';
 
 /*
 
@@ -84,9 +85,9 @@ const MoviePage = () => {
             <div>
               <div className="genre-list">
                 {genreData?.map((item) => (
-                  <button className="genre-btn" key={item.id} onClick={() => genreFilter(item)}>
+                  <Badge bg="success me-2" key={item.id} onClick={() => genreFilter(item)}>
                     {item.name}
-                  </button>
+                  </Badge>
                 ))}
               </div>
             </div>
@@ -102,12 +103,12 @@ const MoviePage = () => {
           </Col>
         </Row>
         <ReactPaginate
-          nextLabel="next >"
+          nextLabel=">"
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           marginPagesDisplayed={2}
           pageCount={data?.total_pages}
-          previousLabel="< previous"
+          previousLabel="<"
           pageClassName="page-item"
           pageLinkClassName="page-link"
           previousClassName="page-item"

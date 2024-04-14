@@ -33,7 +33,7 @@ const MovieDetailPage = () => {
             {data.tagline && <h4 className="tagline">{data.tagline}</h4>}
             <h1>{data?.title}</h1>
             {data?.genres.map((genre, index) => (
-              <Badge key={index} bg="danger me-2">
+              <Badge key={index} bg="success me-2">
                 {genre.name}
               </Badge>
             ))}
