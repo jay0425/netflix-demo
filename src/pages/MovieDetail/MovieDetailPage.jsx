@@ -23,11 +23,7 @@ const MovieDetailPage = () => {
       <Container>
         <Row>
           <Col>
-            <img
-              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${data?.poster_path}`}
-              alt="poster"
-              className="w-100"
-            />
+            <img src={`https://image.tmdb.org/t/p/original${data?.poster_path}`} alt="poster" className="w-100" />
           </Col>
           <Col>
             <h1>{data?.title}</h1>
@@ -40,7 +36,7 @@ const MovieDetailPage = () => {
                 <FontAwesomeIcon icon={faUsers} className="me-2 text-warning" />
                 {data?.popularity}
               </h3>
-              <div>
+              <div className="p-0 m-0">
                 {data.adult ? (
                   <div className="bg-danger rounded-circle adult-style">18</div>
                 ) : (

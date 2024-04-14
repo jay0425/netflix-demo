@@ -27,7 +27,7 @@ const MovieCard = ({ movie }) => {
   return (
     <div
       style={{
-        backgroundImage: 'url(' + `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` + ')',
+        backgroundImage: 'url(' + `https://image.tmdb.org/t/p/original${movie.poster_path}` + ')',
       }}
       className="movie-card"
       onClick={() => goToDetailPage(movie.id)}
