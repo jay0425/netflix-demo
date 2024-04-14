@@ -10,7 +10,7 @@ const MovieDetailPage = () => {
   let { id } = useParams();
 
   const { data, isLoading, isError, error } = useDetailMovies(id);
-
+  console.log(data);
   if (isLoading) {
     return <isLoading />;
   }
@@ -23,28 +23,26 @@ const MovieDetailPage = () => {
       <Container>
         <Row>
           <Col>
-            <img src={`https://image.tmdb.org/t/p/original${data?.poster_path}`} alt="poster" className="w-100" />
+            <img
+              src={`https://image.tmdb.org/t/p/original${data?.poster_path}`}
+              alt="포스터 이미지"
+              className="w-100"
+            />
           </Col>
           <Col>
+            {data.tagline && <p className="tagline">{data.tagline}</p>}
             <h1>{data?.title}</h1>
+            <div>
+              <h5 className="py-2">{data.overview}</h5>
+            </div>
             <div className="d-flex align-items-center">
-              <h3 className="me-4">
-                <FontAwesomeIcon icon={faImdb} className="me-2" />
-                {data?.vote_average}
-              </h3>
-              <h3 className="me-4">
-                <FontAwesomeIcon icon={faUsers} className="me-2 text-warning" />
-                {data?.popularity}
-              </h3>
+              <div className="me-4">평점 {data?.vote_average.toFixed(1)}</div>
+              <div className="me-4">관객수 {data?.popularity}</div>
+              <div className="me-4">제작비 {data.budget > 0 && data.budget.toLocaleString('ko-KR')}원</div>
               <div className="p-0 m-0">
-                {data.adult ? (
-                  <div className="bg-danger rounded-circle adult-style">18</div>
-                ) : (
-                  <div className="bg-warning rounded-circle text-black adult-style">ALL</div>
-                )}
+                {data.adult ? <div className="bg-danger rounded-circle adult-style">18</div> : <div>전체 연령가</div>}
               </div>
             </div>
-            <div>영화 정보</div>
           </Col>
         </Row>
         <Row>
