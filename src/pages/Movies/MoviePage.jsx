@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import Alert from 'react-bootstrap/Alert';
 import Loading from '../../common/Loading/Loading';

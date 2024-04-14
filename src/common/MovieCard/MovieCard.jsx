@@ -4,8 +4,14 @@ import './MovieCard.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
+  const navigate = useNavigate();
+  const goToDetailPage = (id) => {
+    navigate(`/movies/${id}`);
+  };
+
   const { data: genreData } = useMovieGenreQuery();
   console.log('genre', genreData);
 
@@ -24,6 +30,7 @@ const MovieCard = ({ movie }) => {
         backgroundImage: 'url(' + `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` + ')',
       }}
       className="movie-card"
+      onClick={() => goToDetailPage(movie.id)}
     >
       <div className="overlay">
         <h1>{movie.title}</h1>
