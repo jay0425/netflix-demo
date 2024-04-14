@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Badge, Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useDetailMovies } from '../../hooks/useDeatilMovies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,15 +30,20 @@ const MovieDetailPage = () => {
             />
           </Col>
           <Col>
-            {data.tagline && <p className="tagline">{data.tagline}</p>}
+            {data.tagline && <h4 className="tagline">{data.tagline}</h4>}
             <h1>{data?.title}</h1>
+            {data?.genres.map((genre, index) => (
+              <Badge key={index} bg="danger me-2">
+                {genre.name}
+              </Badge>
+            ))}
             <div>
-              <h5 className="py-2">{data.overview}</h5>
+              <h5 className="py-3">{data.overview}</h5>
             </div>
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center text-muted">
               <div className="me-4">평점 {data?.vote_average.toFixed(1)}</div>
               <div className="me-4">관객수 {data?.popularity}</div>
-              <div className="me-4">제작비 {data.budget > 0 && data.budget.toLocaleString('ko-KR')}원</div>
+              <div className="me-4">제작비 {data.budget > 0 && data.budget.toLocaleString('ko-KR')}</div>
               <div className="p-0 m-0">
                 {data.adult ? <div className="bg-danger rounded-circle adult-style">18</div> : <div>전체 연령가</div>}
               </div>
