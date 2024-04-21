@@ -1,0 +1,14 @@
+.movie-poster {
+  width: 400px;
+}
+
+.movie-reviews {
+  margin-top: 20px !important;
+}
+
+.movie-info {
+  border-top: 3px solid green;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}

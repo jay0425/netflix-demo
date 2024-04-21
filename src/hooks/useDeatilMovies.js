@@ -5,7 +5,7 @@ const fetchMovies = (item) => {
   return api.get(`/movie/${item}?language=ko`);
 };
 
-export const useDetailMovies = (id) => {
+export const useDetailMoviesQuery = (id) => {
   return useQuery({
     queryKey: ['movie-details', id],
     queryFn: () => fetchMovies(id),
